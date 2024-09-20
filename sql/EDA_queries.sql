@@ -128,3 +128,60 @@ JOIN companies c ON s.symbol = c.symbol
 JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
 GROUP BY c."GICS Sector", c.symbol, DATE_TRUNC('month', s."Date")
 ORDER BY c."GICS Sector", month_start;
+
+
+
+
+
+-- High Volatility Events View
+CREATE OR REPLACE VIEW high_volatility_events AS
+SELECT 
+    s.symbol,
+    s."Date",
+    s."Close",
+    si.volatility,
+    si.high_volatility_flag,
+    si.price_outlier
+FROM stocks s
+JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
+WHERE si.high_volatility_flag = TRUE
+ORDER BY s.symbol, s."Date";
+
+
+
+
+
+-- Sector-Wise Performance View
+CREATE OR REPLACE VIEW sector_performance AS
+SELECT 
+    c."GICS Sector",
+    DATE_TRUNC('quarter', s."Date") AS quarter_start,
+    AVG(s."Close") AS avg_sector_close,
+    SUM(s."Volume") AS total_sector_volume
+FROM stocks s
+JOIN companies c ON s.symbol = c.symbol
+GROUP BY c."GICS Sector", DATE_TRUNC('quarter', s."Date")
+ORDER BY c."GICS Sector", quarter_start;
+
+
+
+
+
+-- Outlier Detection View
+CREATE OR REPLACE VIEW outlier_detection AS
+SELECT 
+    s.symbol,
+    s."Date",
+    s."Close",
+    si.price_outlier,
+    CASE 
+        WHEN si.price_outlier = TRUE THEN 'Significant Outlier'
+        ELSE 'Normal'
+    END AS outlier_status
+FROM stocks s
+JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
+WHERE si.price_outlier IS NOT NULL
+ORDER BY s.symbol, s."Date";
+
+
+
