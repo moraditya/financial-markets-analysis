@@ -6,36 +6,37 @@
 --- Step 1: add ema_14 to stocks_indicators
 ALTER TABLE stocks_indicators
 ADD COLUMN ema_14 DOUBLE PRECISION;
--- Step 2: calculate and populate the 14-day exponential moving average for the first 14 days with the simple moving average, so we can initialize the EMA
-WITH sma_14_cte AS (
-    SELECT s.symbol, s."Date", AVG(s."Close") OVER (PARTITION BY s.symbol ORDER BY s."Date" ROWS BETWEEN 13 PRECEDING AND CURRENT ROW) AS sma_14
+-- Step 2: Calculate the 14-day Simple Moving Average to initialize EMA
+WITH ema_14_calc AS (
+    SELECT s.symbol, s."Date",
+           AVG(s."Close") OVER (PARTITION BY s.symbol ORDER BY s."Date" ROWS BETWEEN 13 PRECEDING AND CURRENT ROW) AS sma_14
     FROM stocks s
 )
 UPDATE stocks_indicators si
-SET ema_14 = sma_14_cte.sma_14
-FROM sma_14_cte
-WHERE si.symbol = sma_14_cte.symbol
-AND si."Date" = sma_14_cte."Date"
-AND EXISTS (
-    SELECT 1
-    FROM sma_14_cte
-    WHERE sma_14_cte.symbol = si.symbol
-    AND sma_14_cte."Date" = si."Date"
-    HAVING COUNT(*) >= 14
-);
--- Step 3: populate the EMA for the subsequent days
-WITH prev_ema_cte AS (
-    SELECT si.symbol, si."Date", si.ema_14,
+SET ema_14 = ema_14_calc.sma_14
+FROM ema_14_calc
+WHERE si.symbol = ema_14_calc.symbol
+AND si."Date" = ema_14_calc."Date";
+
+-- Step 3: Iteratively update EMA for subsequent days
+WITH iterative_ema AS (
+    SELECT si.symbol, si."Date", 
+           si.ema_14,
            LAG(si.ema_14) OVER (PARTITION BY si.symbol ORDER BY si."Date") AS prev_ema_14,
            s."Close"
     FROM stocks_indicators si
     JOIN stocks s ON si.symbol = s.symbol AND si."Date" = s."Date"
 )
-UPDATE stocks_indicators si
-SET ema_14 = prev_ema_cte.prev_ema_14 + (2 / (14 + 1)) * (prev_ema_cte."Close" - prev_ema_cte.prev_ema_14)
-FROM prev_ema_cte
-WHERE si.symbol = prev_ema_cte.symbol
-AND si."Date" = prev_ema_cte."Date";
+UPDATE stocks_indicators
+SET ema_14 = (prev_ema_14 + (2 / (14 + 1)) * (iterative_ema."Close" - prev_ema_14))
+FROM iterative_ema
+WHERE stocks_indicators.symbol = iterative_ema.symbol
+AND stocks_indicators."Date" = iterative_ema."Date"
+AND iterative_ema.prev_ema_14 IS NOT NULL; -- Ensure only subsequent updates
+
+
+
+
 
 
 
@@ -200,7 +201,7 @@ SET macd_histogram = macd_line - signal_line;
 -- Step 1: Add atr_14 to stocks_indicators
 ALTER TABLE stocks_indicators
 ADD COLUMN atr_14 DOUBLE PRECISION;
--- Step 2: Calculate True Range (TR)
+-- Step 2: Calculate and populate the True Range and 14-day ATR
 WITH tr_cte AS (
     SELECT symbol, "Date",
            GREATEST(
@@ -210,21 +211,19 @@ WITH tr_cte AS (
            ) AS true_range
     FROM stocks
     WHERE "High" IS NOT NULL AND "Low" IS NOT NULL AND "Close" IS NOT NULL
-)
--- Step 3: Ensure True Range calculation is correct
-SELECT * FROM tr_cte LIMIT 20;  -- This will show the true range values; ensure they are not NULL
--- Step 4: Calculate and populate the 14-day ATR
-WITH atr_calc AS (
+),
+atr_calc AS (
     SELECT symbol, "Date",
            AVG(true_range) OVER (PARTITION BY symbol ORDER BY "Date" ROWS BETWEEN 13 PRECEDING AND CURRENT ROW) AS atr_14
     FROM tr_cte
 )
--- Step 5: Update stocks_indicators with calculated ATR values
+-- Step 3: Update stocks_indicators with the calculated ATR
 UPDATE stocks_indicators
 SET atr_14 = atr_calc.atr_14
 FROM atr_calc
 WHERE stocks_indicators.symbol = atr_calc.symbol
 AND stocks_indicators."Date" = atr_calc."Date";
+
 
 
 
