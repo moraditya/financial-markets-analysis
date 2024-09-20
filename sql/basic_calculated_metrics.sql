@@ -112,13 +112,50 @@ AND stocks_indicators."Date" = cumulative_volume_cte."Date";
 
 
 
---- Daily Volume Percentage (DVP)
+--- Daily Volatility Percentage (DVP)
 -- Step 1: Add daily_volatility_percent to stocks_indicators
 ALTER TABLE stocks_indicators ADD COLUMN daily_volatility_percent DOUBLE PRECISION;
 
 -- Step 2: Calculate the daily volatility percentage
 UPDATE stocks_indicators
 SET daily_volatility_percent = ((s."High" - s."Low") / s."Open") * 100
+FROM stocks s
+WHERE stocks_indicators.symbol = s.symbol
+AND stocks_indicators."Date" = s."Date";
+
+
+
+
+
+
+--- Volume Change (day-over-day change)
+-- Step 1: Add volume_change to stocks_indicators
+ALTER TABLE stocks_indicators ADD COLUMN volume_change BIGINT;
+
+-- Step 2: Calculate the volume change
+WITH volume_cte AS (
+    SELECT symbol, "Date",
+           "Volume" - LAG("Volume") OVER (PARTITION BY symbol ORDER BY "Date") AS vol_change
+    FROM stocks
+)
+UPDATE stocks_indicators
+SET volume_change = volume_cte.vol_change
+FROM volume_cte
+WHERE stocks_indicators.symbol = volume_cte.symbol
+AND stocks_indicators."Date" = volume_cte."Date";
+
+
+
+
+
+
+--- High-low Percent Difference
+-- Step 1: Add high_low_percent_diff to stocks_indicators
+ALTER TABLE stocks_indicators ADD COLUMN high_low_percent_diff DOUBLE PRECISION;
+
+-- Step 2: Calculate High-Low Percent Difference
+UPDATE stocks_indicators
+SET high_low_percent_diff = ((s."High" - s."Low") / s."Low") * 100
 FROM stocks s
 WHERE stocks_indicators.symbol = s.symbol
 AND stocks_indicators."Date" = s."Date";
