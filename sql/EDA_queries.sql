@@ -115,3 +115,16 @@ WHERE s."Volume" IS NOT NULL;
 
 
 
+-- Performance Comparison View
+CREATE OR REPLACE VIEW performance_comparison AS
+SELECT 
+    c."GICS Sector",
+    c.symbol,
+    DATE_TRUNC('month', s."Date") AS month_start,
+    AVG(s."Close") AS sector_avg_close,
+    AVG(si.rsi_14) AS sector_avg_rsi
+FROM stocks s
+JOIN companies c ON s.symbol = c.symbol
+JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
+GROUP BY c."GICS Sector", c.symbol, DATE_TRUNC('month', s."Date")
+ORDER BY c."GICS Sector", month_start;
