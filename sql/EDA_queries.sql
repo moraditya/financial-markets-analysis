@@ -33,3 +33,85 @@ SELECT
 FROM stocks
 GROUP BY symbol, DATE_TRUNC('month', "Date")
 ORDER BY symbol, month_start;
+
+
+
+
+
+-- Daily Summary View
+CREATE OR REPLACE VIEW daily_summary AS
+SELECT 
+    s.symbol,
+    s."Date",
+    s."Close",
+    s."Volume",
+    si.ema_14,
+    si.rsi_14,
+    si.macd_line,
+    si.bollinger_upper_band,
+    si.bollinger_lower_band,
+    si.volatility,
+    (s."Close" - LAG(s."Close") OVER (PARTITION BY s.symbol ORDER BY s."Date")) / LAG(s."Close") OVER (PARTITION BY s.symbol ORDER BY s."Date") * 100 AS daily_return
+FROM stocks s
+JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
+WHERE s."Close" IS NOT NULL;
+
+
+
+
+-- Weekly Summary View
+CREATE OR REPLACE VIEW weekly_summary AS
+SELECT 
+    s.symbol,
+    DATE_TRUNC('week', s."Date") AS week_start,
+    AVG(s."Close") AS weekly_avg_close,
+    SUM(s."Volume") AS weekly_volume,
+    MAX(si.rsi_14) AS max_weekly_rsi,
+    MIN(si.bollinger_lower_band) AS min_weekly_bollinger,
+    AVG(si.volatility) AS avg_weekly_volatility
+FROM stocks s
+JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
+WHERE s."Close" IS NOT NULL
+GROUP BY s.symbol, DATE_TRUNC('week', s."Date")
+ORDER BY s.symbol, week_start;
+
+
+
+
+
+
+-- Monthly Summary View
+CREATE OR REPLACE VIEW monthly_summary AS
+SELECT 
+    s.symbol,
+    DATE_TRUNC('month', s."Date") AS month_start,
+    AVG(s."Close") AS monthly_avg_close,
+    SUM(s."Volume") AS monthly_volume,
+    AVG(si.ema_14) AS avg_monthly_ema_14,
+    AVG(si.rsi_14) AS avg_monthly_rsi,
+    MAX(si.bollinger_upper_band) AS max_monthly_bollinger
+FROM stocks s
+JOIN stocks_indicators si ON s.symbol = si.symbol AND s."Date" = si."Date"
+WHERE s."Close" IS NOT NULL
+GROUP BY s.symbol, DATE_TRUNC('month', s."Date")
+ORDER BY s.symbol, month_start;
+
+
+
+
+
+-- Volume Trend View
+CREATE OR REPLACE VIEW volume_trend AS
+SELECT 
+    s.symbol,
+    s."Date",
+    s."Volume",
+    AVG(s."Volume") OVER (PARTITION BY s.symbol ORDER BY s."Date" ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS avg_weekly_volume,
+    AVG(s."Volume") OVER (PARTITION BY s.symbol ORDER BY s."Date" ROWS BETWEEN 29 PRECEDING AND CURRENT ROW) AS avg_monthly_volume
+FROM stocks s
+WHERE s."Volume" IS NOT NULL;
+
+
+
+
+
