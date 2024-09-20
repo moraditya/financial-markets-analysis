@@ -6,6 +6,8 @@
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelRelationshipPerfOptions.true...ObjectModelRelationshipPerfOptions />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SheetIdentifierTracking />
     <WindowsPersistSimpleIdentifiers />
@@ -27,12 +29,1049 @@
             <connection authentication='username-password' class='postgres' dbname='stock_market_analysis' one-time-sql='' port='5432' server='localhost' username='postgres' />
           </named-connection>
         </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='companies' table='[public].[companies]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='stocks' table='[public].[stocks]' type='table' />
+          <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='companies' table='[public].[companies]' type='table' />
+          <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='daily_aggregated_data' table='[public].[daily_aggregated_data]' type='table' />
+          <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='monthly_aggregated_data' table='[public].[monthly_aggregated_data]' type='table' />
+          <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='stocks_indicators' table='[public].[stocks_indicators]' type='table' />
+          <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='weekly_aggregated_data' table='[public].[weekly_aggregated_data]' type='table' />
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Close (daily_aggregated_data)]' value='[daily_aggregated_data].[Close]' />
+          <map key='[Close]' value='[stocks].[Close]' />
+          <map key='[Date (daily_aggregated_data)]' value='[daily_aggregated_data].[Date]' />
+          <map key='[Date (stocks_indicators)]' value='[stocks_indicators].[Date]' />
+          <map key='[Date]' value='[stocks].[Date]' />
+          <map key='[Dividends]' value='[stocks].[Dividends]' />
+          <map key='[GICS Sector]' value='[companies].[GICS Sector]' />
+          <map key='[GICS Sub-Industry]' value='[companies].[GICS Sub-Industry]' />
+          <map key='[Headquarters Location]' value='[companies].[Headquarters Location]' />
+          <map key='[High]' value='[stocks].[High]' />
+          <map key='[Low]' value='[stocks].[Low]' />
+          <map key='[Open]' value='[stocks].[Open]' />
+          <map key='[Security]' value='[companies].[Security]' />
+          <map key='[Stock Splits]' value='[stocks].[Stock Splits]' />
+          <map key='[Volume (daily_aggregated_data)]' value='[daily_aggregated_data].[Volume]' />
+          <map key='[Volume]' value='[stocks].[Volume]' />
+          <map key='[adl]' value='[stocks_indicators].[adl]' />
+          <map key='[atr_14]' value='[stocks_indicators].[atr_14]' />
+          <map key='[average_price]' value='[stocks_indicators].[average_price]' />
+          <map key='[bollinger_lower_band]' value='[stocks_indicators].[bollinger_lower_band]' />
+          <map key='[bollinger_sma_20]' value='[stocks_indicators].[bollinger_sma_20]' />
+          <map key='[bollinger_upper_band]' value='[stocks_indicators].[bollinger_upper_band]' />
+          <map key='[cmf_20]' value='[stocks_indicators].[cmf_20]' />
+          <map key='[cumulative_volume]' value='[stocks_indicators].[cumulative_volume]' />
+          <map key='[daily_price_change]' value='[stocks_indicators].[daily_price_change]' />
+          <map key='[daily_volatility_percent]' value='[stocks_indicators].[daily_volatility_percent]' />
+          <map key='[ema_12]' value='[stocks_indicators].[ema_12]' />
+          <map key='[ema_14]' value='[stocks_indicators].[ema_14]' />
+          <map key='[ema_26]' value='[stocks_indicators].[ema_26]' />
+          <map key='[high_low_percent_diff]' value='[stocks_indicators].[high_low_percent_diff]' />
+          <map key='[high_volatility_flag]' value='[stocks_indicators].[high_volatility_flag]' />
+          <map key='[id (stocks_indicators)]' value='[stocks_indicators].[id]' />
+          <map key='[id]' value='[stocks].[id]' />
+          <map key='[macd_histogram]' value='[stocks_indicators].[macd_histogram]' />
+          <map key='[macd_line]' value='[stocks_indicators].[macd_line]' />
+          <map key='[momentum_10]' value='[stocks_indicators].[momentum_10]' />
+          <map key='[month_start]' value='[monthly_aggregated_data].[month_start]' />
+          <map key='[monthly_avg_close]' value='[monthly_aggregated_data].[monthly_avg_close]' />
+          <map key='[monthly_volume]' value='[monthly_aggregated_data].[monthly_volume]' />
+          <map key='[moving_avg_30]' value='[stocks_indicators].[moving_avg_30]' />
+          <map key='[moving_avg_7]' value='[stocks_indicators].[moving_avg_7]' />
+          <map key='[normalized_close]' value='[stocks_indicators].[normalized_close]' />
+          <map key='[obv]' value='[stocks_indicators].[obv]' />
+          <map key='[percentage_change]' value='[stocks_indicators].[percentage_change]' />
+          <map key='[price_outlier]' value='[stocks_indicators].[price_outlier]' />
+          <map key='[price_volume_ratio]' value='[stocks_indicators].[price_volume_ratio]' />
+          <map key='[roc_14]' value='[stocks_indicators].[roc_14]' />
+          <map key='[rsi_14]' value='[stocks_indicators].[rsi_14]' />
+          <map key='[signal_line]' value='[stocks_indicators].[signal_line]' />
+          <map key='[symbol (companies)]' value='[companies].[symbol]' />
+          <map key='[symbol (daily_aggregated_data)]' value='[daily_aggregated_data].[symbol]' />
+          <map key='[symbol (monthly_aggregated_data)]' value='[monthly_aggregated_data].[symbol]' />
+          <map key='[symbol (stocks_indicators)]' value='[stocks_indicators].[symbol]' />
+          <map key='[symbol (weekly_aggregated_data)]' value='[weekly_aggregated_data].[symbol]' />
+          <map key='[symbol]' value='[stocks].[symbol]' />
+          <map key='[volatility]' value='[stocks_indicators].[volatility]' />
+          <map key='[volume_change]' value='[stocks_indicators].[volume_change]' />
+          <map key='[vwap]' value='[stocks_indicators].[vwap]' />
+          <map key='[week_start]' value='[weekly_aggregated_data].[week_start]' />
+          <map key='[weekly_avg_close]' value='[weekly_aggregated_data].[weekly_avg_close]' />
+          <map key='[weekly_volume]' value='[weekly_aggregated_data].[weekly_volume]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Open</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Open]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Open</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>High</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[High]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>High</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Low</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Low]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Low</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Close</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Close]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Close</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Volume</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Volume]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Volume</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Dividends</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Dividends]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Dividends</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Stock Splits</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Stock Splits]</local-name>
+            <parent-name>[stocks]</parent-name>
+            <remote-alias>Stock Splits</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol (companies)]</local-name>
+            <parent-name>[companies]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[companies_D57ADCC1ADEC47E88521CFA71F1C2446]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Security</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Security]</local-name>
+            <parent-name>[companies]</parent-name>
+            <remote-alias>Security</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>255</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[companies_D57ADCC1ADEC47E88521CFA71F1C2446]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GICS Sector</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[GICS Sector]</local-name>
+            <parent-name>[companies]</parent-name>
+            <remote-alias>GICS Sector</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[companies_D57ADCC1ADEC47E88521CFA71F1C2446]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GICS Sub-Industry</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[GICS Sub-Industry]</local-name>
+            <parent-name>[companies]</parent-name>
+            <remote-alias>GICS Sub-Industry</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>100</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[companies_D57ADCC1ADEC47E88521CFA71F1C2446]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Headquarters Location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Headquarters Location]</local-name>
+            <parent-name>[companies]</parent-name>
+            <remote-alias>Headquarters Location</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>255</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[companies_D57ADCC1ADEC47E88521CFA71F1C2446]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol (daily_aggregated_data)]</local-name>
+            <parent-name>[daily_aggregated_data]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[daily_aggregated_data_2914B475054444019C4E81FD443C9735]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date (daily_aggregated_data)]</local-name>
+            <parent-name>[daily_aggregated_data]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[daily_aggregated_data_2914B475054444019C4E81FD443C9735]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Close</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Close (daily_aggregated_data)]</local-name>
+            <parent-name>[daily_aggregated_data]</parent-name>
+            <remote-alias>Close</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[daily_aggregated_data_2914B475054444019C4E81FD443C9735]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Volume</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Volume (daily_aggregated_data)]</local-name>
+            <parent-name>[daily_aggregated_data]</parent-name>
+            <remote-alias>Volume</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[daily_aggregated_data_2914B475054444019C4E81FD443C9735]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol (monthly_aggregated_data)]</local-name>
+            <parent-name>[monthly_aggregated_data]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month_start</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[month_start]</local-name>
+            <parent-name>[monthly_aggregated_data]</parent-name>
+            <remote-alias>month_start</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monthly_avg_close</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[monthly_avg_close]</local-name>
+            <parent-name>[monthly_aggregated_data]</parent-name>
+            <remote-alias>monthly_avg_close</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monthly_volume</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[monthly_volume]</local-name>
+            <parent-name>[monthly_aggregated_data]</parent-name>
+            <remote-alias>monthly_volume</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[id (stocks_indicators)]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol (stocks_indicators)]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Date (stocks_indicators)]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>moving_avg_7</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[moving_avg_7]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>moving_avg_7</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>moving_avg_30</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[moving_avg_30]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>moving_avg_30</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>normalized_close</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[normalized_close]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>normalized_close</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>volatility</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[volatility]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>volatility</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>high_volatility_flag</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[high_volatility_flag]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>high_volatility_flag</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_outlier</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[price_outlier]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>price_outlier</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rsi_14</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rsi_14]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>rsi_14</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>obv</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[obv]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>obv</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bollinger_sma_20</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bollinger_sma_20]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>bollinger_sma_20</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bollinger_upper_band</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bollinger_upper_band]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>bollinger_upper_band</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bollinger_lower_band</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bollinger_lower_band]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>bollinger_lower_band</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ema_12</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ema_12]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>ema_12</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ema_26</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ema_26]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>ema_26</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>macd_line</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[macd_line]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>macd_line</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>signal_line</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[signal_line]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>signal_line</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>macd_histogram</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[macd_histogram]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>macd_histogram</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>atr_14</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[atr_14]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>atr_14</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>momentum_10</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[momentum_10]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>momentum_10</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ema_14</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ema_14]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>ema_14</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>roc_14</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[roc_14]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>roc_14</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adl</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[adl]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>adl</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cmf_20</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[cmf_20]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>cmf_20</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>daily_price_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[daily_price_change]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>daily_price_change</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>percentage_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[percentage_change]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>percentage_change</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>average_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[average_price]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>average_price</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vwap</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[vwap]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>vwap</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_volume_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price_volume_ratio]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>price_volume_ratio</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cumulative_volume</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cumulative_volume]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>cumulative_volume</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>daily_volatility_percent</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[daily_volatility_percent]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>daily_volatility_percent</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>volume_change</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[volume_change]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>volume_change</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>high_low_percent_diff</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[high_low_percent_diff]</local-name>
+            <parent-name>[stocks_indicators]</parent-name>
+            <remote-alias>high_low_percent_diff</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol (weekly_aggregated_data)]</local-name>
+            <parent-name>[weekly_aggregated_data]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>week_start</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[week_start]</local-name>
+            <parent-name>[weekly_aggregated_data]</parent-name>
+            <remote-alias>week_start</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weekly_avg_close</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[weekly_avg_close]</local-name>
+            <parent-name>[weekly_aggregated_data]</parent-name>
+            <remote-alias>weekly_avg_close</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weekly_volume</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[weekly_volume]</local-name>
+            <parent-name>[weekly_aggregated_data]</parent-name>
+            <remote-alias>weekly_volume</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
       </connection>
+      <aliases enabled='yes' />
+      <column caption='Close (daily aggregated data)' datatype='real' name='[Close (daily_aggregated_data)]' role='measure' type='quantitative' />
+      <column caption='Date (daily aggregated data)' datatype='date' name='[Date (daily_aggregated_data)]' role='dimension' type='ordinal' />
+      <column caption='Date (stocks indicators)' datatype='date' name='[Date (stocks_indicators)]' role='dimension' type='ordinal' />
+      <column caption='Volume (daily aggregated data)' datatype='integer' name='[Volume (daily_aggregated_data)]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='companies' datatype='table' name='[__tableau_internal_object_id__].[companies_D57ADCC1ADEC47E88521CFA71F1C2446]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='daily_aggregated_data' datatype='table' name='[__tableau_internal_object_id__].[daily_aggregated_data_2914B475054444019C4E81FD443C9735]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='monthly_aggregated_data' datatype='table' name='[__tableau_internal_object_id__].[monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='stocks' datatype='table' name='[__tableau_internal_object_id__].[stocks_7005EEBD69664ECBAE15EC935DEB0B4E]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='stocks_indicators' datatype='table' name='[__tableau_internal_object_id__].[stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='weekly_aggregated_data' datatype='table' name='[__tableau_internal_object_id__].[weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B]' role='measure' type='quantitative' />
+      <column caption='Adl' datatype='real' name='[adl]' role='measure' type='quantitative' />
+      <column caption='Atr 14' datatype='real' name='[atr_14]' role='measure' type='quantitative' />
+      <column caption='Average Price' datatype='real' name='[average_price]' role='measure' type='quantitative' />
+      <column caption='Bollinger Lower Band' datatype='real' name='[bollinger_lower_band]' role='measure' type='quantitative' />
+      <column caption='Bollinger Sma 20' datatype='real' name='[bollinger_sma_20]' role='measure' type='quantitative' />
+      <column caption='Bollinger Upper Band' datatype='real' name='[bollinger_upper_band]' role='measure' type='quantitative' />
+      <column caption='Cmf 20' datatype='real' name='[cmf_20]' role='measure' type='quantitative' />
+      <column caption='Cumulative Volume' datatype='integer' name='[cumulative_volume]' role='measure' type='quantitative' />
+      <column caption='Daily Price Change' datatype='real' name='[daily_price_change]' role='measure' type='quantitative' />
+      <column caption='Daily Volatility Percent' datatype='real' name='[daily_volatility_percent]' role='measure' type='quantitative' />
+      <column caption='Ema 12' datatype='real' name='[ema_12]' role='measure' type='quantitative' />
+      <column caption='Ema 14' datatype='real' name='[ema_14]' role='measure' type='quantitative' />
+      <column caption='Ema 26' datatype='real' name='[ema_26]' role='measure' type='quantitative' />
+      <column caption='High Low Percent Diff' datatype='real' name='[high_low_percent_diff]' role='measure' type='quantitative' />
+      <column caption='High Volatility Flag' datatype='boolean' name='[high_volatility_flag]' role='dimension' type='nominal' />
+      <column caption='Id (Stocks Indicators)' datatype='integer' name='[id (stocks_indicators)]' role='dimension' type='ordinal' />
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Macd Histogram' datatype='real' name='[macd_histogram]' role='measure' type='quantitative' />
+      <column caption='Macd Line' datatype='real' name='[macd_line]' role='measure' type='quantitative' />
+      <column caption='Momentum 10' datatype='real' name='[momentum_10]' role='measure' type='quantitative' />
+      <column caption='Month Start' datatype='datetime' name='[month_start]' role='dimension' type='ordinal' />
+      <column caption='Monthly Avg Close' datatype='real' name='[monthly_avg_close]' role='measure' type='quantitative' />
+      <column caption='Monthly Volume' datatype='real' name='[monthly_volume]' role='measure' type='quantitative' />
+      <column caption='Moving Avg 30' datatype='real' name='[moving_avg_30]' role='measure' type='quantitative' />
+      <column caption='Moving Avg 7' datatype='real' name='[moving_avg_7]' role='measure' type='quantitative' />
+      <column caption='Normalized Close' datatype='real' name='[normalized_close]' role='measure' type='quantitative' />
+      <column caption='Obv' datatype='integer' name='[obv]' role='measure' type='quantitative' />
+      <column caption='Percentage Change' datatype='real' name='[percentage_change]' role='measure' type='quantitative' />
+      <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
+      <column caption='Price Volume Ratio' datatype='real' name='[price_volume_ratio]' role='measure' type='quantitative' />
+      <column caption='Roc 14' datatype='real' name='[roc_14]' role='measure' type='quantitative' />
+      <column caption='Rsi 14' datatype='real' name='[rsi_14]' role='measure' type='quantitative' />
+      <column caption='Signal Line' datatype='real' name='[signal_line]' role='measure' type='quantitative' />
+      <column caption='Symbol (Companies)' datatype='string' name='[symbol (companies)]' role='dimension' type='nominal' />
+      <column caption='Symbol (Daily Aggregated Data)' datatype='string' name='[symbol (daily_aggregated_data)]' role='dimension' type='nominal' />
+      <column caption='Symbol (Monthly Aggregated Data)' datatype='string' name='[symbol (monthly_aggregated_data)]' role='dimension' type='nominal' />
+      <column caption='Symbol (Stocks Indicators)' datatype='string' name='[symbol (stocks_indicators)]' role='dimension' type='nominal' />
+      <column caption='Symbol (Weekly Aggregated Data)' datatype='string' name='[symbol (weekly_aggregated_data)]' role='dimension' type='nominal' />
+      <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+      <column caption='Volatility' datatype='real' name='[volatility]' role='measure' type='quantitative' />
+      <column caption='Volume Change' datatype='integer' name='[volume_change]' role='measure' type='quantitative' />
+      <column caption='Vwap' datatype='real' name='[vwap]' role='measure' type='quantitative' />
+      <column caption='Week Start' datatype='datetime' name='[week_start]' role='dimension' type='ordinal' />
+      <column caption='Weekly Avg Close' datatype='real' name='[weekly_avg_close]' role='measure' type='quantitative' />
+      <column caption='Weekly Volume' datatype='real' name='[weekly_volume]' role='measure' type='quantitative' />
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
-      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='companies' id='companies_D57ADCC1ADEC47E88521CFA71F1C2446'>
+            <properties context=''>
+              <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='companies' table='[public].[companies]' type='table' />
+            </properties>
+          </object>
+          <object caption='daily_aggregated_data' id='daily_aggregated_data_2914B475054444019C4E81FD443C9735'>
+            <properties context=''>
+              <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='daily_aggregated_data' table='[public].[daily_aggregated_data]' type='table' />
+            </properties>
+          </object>
+          <object caption='monthly_aggregated_data' id='monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55'>
+            <properties context=''>
+              <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='monthly_aggregated_data' table='[public].[monthly_aggregated_data]' type='table' />
+            </properties>
+          </object>
+          <object caption='stocks' id='stocks_7005EEBD69664ECBAE15EC935DEB0B4E'>
+            <properties context=''>
+              <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='stocks' table='[public].[stocks]' type='table' />
+            </properties>
+          </object>
+          <object caption='stocks_indicators' id='stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6'>
+            <properties context=''>
+              <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='stocks_indicators' table='[public].[stocks_indicators]' type='table' />
+            </properties>
+          </object>
+          <object caption='weekly_aggregated_data' id='weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B'>
+            <properties context=''>
+              <relation connection='postgres.09pw48j03te6u81bzjxq50w2gmxh' name='weekly_aggregated_data' table='[public].[weekly_aggregated_data]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[symbol]' />
+              <expression op='[symbol (companies)]' />
+            </expression>
+            <first-end-point object-id='stocks_7005EEBD69664ECBAE15EC935DEB0B4E' />
+            <second-end-point _.fcp.ObjectModelRelationshipPerfOptions.true...is-db-set-unique-key='true' object-id='companies_D57ADCC1ADEC47E88521CFA71F1C2446' unique-key='true' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[symbol]' />
+              <expression op='[symbol (daily_aggregated_data)]' />
+            </expression>
+            <first-end-point object-id='stocks_7005EEBD69664ECBAE15EC935DEB0B4E' />
+            <second-end-point object-id='daily_aggregated_data_2914B475054444019C4E81FD443C9735' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[symbol]' />
+              <expression op='[symbol (monthly_aggregated_data)]' />
+            </expression>
+            <first-end-point object-id='stocks_7005EEBD69664ECBAE15EC935DEB0B4E' />
+            <second-end-point object-id='monthly_aggregated_data_EE1ECFF43E1D4526975ABDCE0747EF55' />
+          </relationship>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[Date]' />
+                <expression op='[Date (stocks_indicators)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[symbol]' />
+                <expression op='[symbol (stocks_indicators)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='stocks_7005EEBD69664ECBAE15EC935DEB0B4E' />
+            <second-end-point object-id='stocks_indicators_5A89C332973B4B82A5D97E64E11EB8E6' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[symbol]' />
+              <expression op='[symbol (weekly_aggregated_data)]' />
+            </expression>
+            <first-end-point object-id='stocks_7005EEBD69664ECBAE15EC935DEB0B4E' />
+            <second-end-point object-id='weekly_aggregated_data_88FB135D2BF3496EAB46A9DE20D5323B' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
   <worksheets>
