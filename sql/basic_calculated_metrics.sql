@@ -71,3 +71,55 @@ SET vwap = ((s."High" + s."Low" + s."Close") / 3) * s."Volume"
 FROM stocks s
 WHERE stocks_indicators.symbol = s.symbol
 AND stocks_indicators."Date" = s."Date";
+
+
+
+
+
+--- Price-Volume Ratio
+-- Step 1: Add price_volume_ratio to stocks_indicators
+ALTER TABLE stocks_indicators ADD COLUMN price_volume_ratio DOUBLE PRECISION;
+
+-- Step 2: Calculate the Price-Volume Ratio
+UPDATE stocks_indicators
+SET price_volume_ratio = s."Close" / s."Volume"
+FROM stocks s
+WHERE stocks_indicators.symbol = s.symbol
+AND stocks_indicators."Date" = s."Date";
+
+
+
+
+
+
+--- Cumulative Volume
+-- Step 1: Add cumulative_volume to stocks_indicators
+ALTER TABLE stocks_indicators ADD COLUMN cumulative_volume BIGINT;
+
+-- Step 2: Calculate Cumulative Volume (can be adjusted for weekly, monthly)
+WITH cumulative_volume_cte AS (
+    SELECT symbol, "Date", SUM("Volume") OVER (PARTITION BY symbol ORDER BY "Date") AS cum_vol
+    FROM stocks
+)
+UPDATE stocks_indicators
+SET cumulative_volume = cumulative_volume_cte.cum_vol
+FROM cumulative_volume_cte
+WHERE stocks_indicators.symbol = cumulative_volume_cte.symbol
+AND stocks_indicators."Date" = cumulative_volume_cte."Date";
+
+
+
+
+
+
+--- Daily Volume Percentage (DVP)
+-- Step 1: Add daily_volatility_percent to stocks_indicators
+ALTER TABLE stocks_indicators ADD COLUMN daily_volatility_percent DOUBLE PRECISION;
+
+-- Step 2: Calculate the daily volatility percentage
+UPDATE stocks_indicators
+SET daily_volatility_percent = ((s."High" - s."Low") / s."Open") * 100
+FROM stocks s
+WHERE stocks_indicators.symbol = s.symbol
+AND stocks_indicators."Date" = s."Date";
+
