@@ -249,4 +249,82 @@ WHERE stocks_indicators.symbol = momentum_cte.symbol
 AND stocks_indicators."Date" = momentum_cte."Date";
 
 
-select * from stocks_indicators;
+
+
+
+-- Rate of Change (ROC)
+-- Step 1: Add the ROC column to stocks_indicators
+ALTER TABLE stocks_indicators
+ADD COLUMN roc_14 DOUBLE PRECISION;
+
+-- Step 2: Calculate and populate the 14-day Rate of Change (ROC)
+WITH roc_calc AS (
+    SELECT si.symbol, si."Date",
+           s."Close",
+           LAG(s."Close", 14) OVER (PARTITION BY si.symbol ORDER BY si."Date") AS close_14_periods_ago
+    FROM stocks_indicators si
+    JOIN stocks s ON si.symbol = s.symbol AND si."Date" = s."Date"
+)
+UPDATE stocks_indicators si
+SET roc_14 = ((roc_calc."Close" - roc_calc.close_14_periods_ago) / roc_calc.close_14_periods_ago) * 100
+FROM roc_calc
+WHERE si.symbol = roc_calc.symbol
+AND si."Date" = roc_calc."Date"
+AND roc_calc.close_14_periods_ago IS NOT NULL;
+
+
+
+
+
+--- Accumulation/Distribution Line (ADL)
+-- Step 1: Add the ADL column to stocks_indicators
+ALTER TABLE stocks_indicators
+ADD COLUMN adl DOUBLE PRECISION;
+
+-- Step 2: Calculate and populate the Accumulation/Distribution Line (ADL)
+WITH adl_calc AS (
+    SELECT s.symbol, s."Date",
+           s."Close", s."High", s."Low", s."Volume",
+           ((s."Close" - s."Low") - (s."High" - s."Close")) / (s."High" - s."Low") AS money_flow_multiplier,
+           ((s."Close" - s."Low") - (s."High" - s."Close")) / (s."High" - s."Low") * s."Volume" AS money_flow_volume
+    FROM stocks s
+)
+, adl_cumulative AS (
+    SELECT adl_calc.symbol, adl_calc."Date",
+           SUM(adl_calc.money_flow_volume) OVER (PARTITION BY adl_calc.symbol ORDER BY adl_calc."Date") AS adl_value
+    FROM adl_calc
+)
+UPDATE stocks_indicators si
+SET adl = adl_cumulative.adl_value
+FROM adl_cumulative
+WHERE si.symbol = adl_cumulative.symbol
+AND si."Date" = adl_cumulative."Date";
+
+
+
+
+
+
+--Chaikin Money Flow (CMF)
+-- Step 1: Add the CMF column to stocks_indicators
+ALTER TABLE stocks_indicators
+ADD COLUMN cmf_20 DOUBLE PRECISION;
+
+-- Step 2: Calculate and populate the 20-day Chaikin Money Flow (CMF)
+WITH cmf_calc AS (
+    SELECT s.symbol, s."Date",
+           ((s."Close" - s."Low") - (s."High" - s."Close")) / (s."High" - s."Low") * s."Volume" AS money_flow_volume
+    FROM stocks s
+),
+cmf_20_period AS (
+    SELECT cmf_calc.symbol, cmf_calc."Date",
+           SUM(cmf_calc.money_flow_volume) OVER (PARTITION BY cmf_calc.symbol ORDER BY cmf_calc."Date" ROWS BETWEEN 19 PRECEDING AND CURRENT ROW) AS mfv_sum_20,
+           SUM(s."Volume") OVER (PARTITION BY cmf_calc.symbol ORDER BY cmf_calc."Date" ROWS BETWEEN 19 PRECEDING AND CURRENT ROW) AS volume_sum_20
+    FROM cmf_calc
+    JOIN stocks s ON cmf_calc.symbol = s.symbol AND cmf_calc."Date" = s."Date"
+)
+UPDATE stocks_indicators si
+SET cmf_20 = cmf_20_period.mfv_sum_20 / cmf_20_period.volume_sum_20
+FROM cmf_20_period
+WHERE si.symbol = cmf_20_period.symbol
+AND si."Date" = cmf_20_period."Date";
