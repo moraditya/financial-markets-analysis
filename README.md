@@ -134,6 +134,7 @@ Shown below are the EDA Queries and summary views.
 ![image](https://github.com/user-attachments/assets/5e618ab2-e893-4a6b-9851-7005f3e93840)
 
 -- **Sector-Wise Performance View**
+
 ![image](https://github.com/user-attachments/assets/2779369b-aef5-4520-97d2-2cf83f1fb997)
 
 -- **Outlier Detection View**
