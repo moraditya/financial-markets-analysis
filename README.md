@@ -8,7 +8,7 @@ This project is an end-to-end data pipeline for analyzing stock market data. It 
 - [Data Pipeline](#data-pipeline)
 - [Database Schema](#database-schema)
 - [Data Aggregation and Calculated Metrics](#data-aggregation-and-calculated-metrics)
-- [SQL Queries](#sql-queries)
+- [EDA Queries](#EDA-Queries)
 - [Tableau Dashboards](#tableau-dashboards)
 - [Technologies Used](#technologies-used)
 - [How to Run the Project](#how-to-run-the-project)
@@ -55,6 +55,9 @@ The PostgreSQL schema consists of three main tables:
  ![image](https://github.com/user-attachments/assets/95ebf931-df96-4e7c-8c98-ac776c9f3567)
 - `sql/insert_data.sql`: Queries to insert data into the tables.
 ![image](https://github.com/user-attachments/assets/7fce92d9-d6c7-477b-ba22-ced6fb3723a5)
+- `sql/basic_calculated_metrics.sql`: Calculates various basic financial indicators (example screenshots shown in the data aggregation and calculated metrics section below).
+- `sql/calculated_metrics.sql`: Calculates various advanced financial indicators (example screenshots shown in the data aggregation and calculated metrics section below).
+- `sql/EDA_queries.sql`:  Contains extensive summary views, used for building the Tableau dashboard.
 
 
 ## Data Aggregation and Calculated Metrics
@@ -100,21 +103,41 @@ The project computes several **basic** and **advanced financial metrics** to aid
 ![image](https://github.com/user-attachments/assets/641e4223-4084-4ee8-8f21-846aee9af046)
 
 
-
-
 **SQL File**:
 - `sql/calculated_metrics.sql`: Contains the SQL queries for calculating advanced metrics.
 
-## SQL Queries
 
-Four SQL files were created during this project:
 
-1. **create_schema.sql**: Contains table creation queries and relationships.
-2. **insert_data.sql**: Handles the insertion of processed data into the PostgreSQL tables.
-3. **basic_calculated_metrics.sql**: Calculates various basic financial indicators.
-4. **calculated_metrics.sql**: Calculates various advanced financial indicators.
-5. **stock_market_analysis_queries.sql**: Contains some some summary views such as sector performance and volatility analysis.
-6. **EDA_queries.sql**:  Contains extensive summary views, used for building the Tableau dashboard.
+## EDA Queries
+Shown below are the EDA Queries and summary views.
+
+- **Cleaned and aggregated tables (daily, weekly, and monthly)**
+
+![image](https://github.com/user-attachments/assets/5abceb6f-a720-4b3e-ae4b-940e73d8c6bb)
+
+-- **Daily Summary View**
+![image](https://github.com/user-attachments/assets/9a6cd0ee-a7c6-46c7-a62e-c63290577c63)
+
+-- **Weekly Summary View**
+![image](https://github.com/user-attachments/assets/753539f4-8cfc-47d7-837e-84bc4cd35ec5)
+
+-- **Monthly Summary View**
+![image](https://github.com/user-attachments/assets/9383ae74-f17a-42ab-9ff0-b3685b229451)
+
+-- **Volume Trend View**
+![image](https://github.com/user-attachments/assets/402f3f32-8591-4dd4-90fe-0dbf317301c0)
+
+-- **Performance Comparison View**
+![image](https://github.com/user-attachments/assets/a8b9cb62-70c4-4ea7-97e9-77f3d73629db)
+
+-- **High Volatility Events View**
+![image](https://github.com/user-attachments/assets/38dae6a3-cade-4e39-8ec4-c7b18ff8db3e)
+
+-- **Sector-Wise Performance View**
+![image](https://github.com/user-attachments/assets/11d8c49f-fd2b-4728-93b5-b6e9355e4c0b)
+
+-- **Outlier Detection View**
+![image](https://github.com/user-attachments/assets/45df16e4-edf9-41cf-beea-1819d12dbab6)
 
 
 ## Tableau Dashboards
@@ -159,12 +182,12 @@ The Tableau workbook is available in the `visualizations/` folder.
    - `load_to_postgresql.ipynb`: Loads the data into PostgreSQL.
 
 3. **Set up PostgreSQL**:
-   - Use `create_schema.sql` and `insert_data.sql` in the `sql/` folder to create tables and insert data.
-   - Run the `calculate_metrics.sql` to generate financial metrics.
+   - Use `schema_creation.sql` and `data_insertion.sql` in the `sql/` folder to create tables and insert data.
+   - Run the `calculated_metrics.sql` and `basic_calculated_metrics.sql` to generate financial metrics.
    
 4. **Connect Tableau**:
    - Connect Tableau to your PostgreSQL database and load the views or tables.
-   - Open the `.twbx` files in the `visualizations/` folder to view the dashboards.
+   - Open the `.twb` file in the `visualizations/` folder to view the dashboard and sheets.
 
 ## Conclusions
 
