@@ -79,9 +79,9 @@ The project computes several **basic** and **advanced financial metrics** to aid
 - **ATR** (Average True Range)
 ![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
 - **Momentum**
-![image](https://github.com/user-attachments/assets/57402ede-72db-4d39-aec0-1d5997ee3f0f)
+![image](https://github.com/user-attachments/assets/95248b36-8ba2-4209-b1f6-cd802c0b82b4)
 - **Rate of Change**
-![image](https://github.com/user-attachments/assets/705563c7-40dd-4500-b635-8dec84f354c9)
+![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
 - **Accumulation/Distribution Line (ADL)**
 ![image](https://github.com/user-attachments/assets/1b432af0-fd7b-4776-bb8c-1dda40b0c148)
 - **Chaikin Money Flow**
