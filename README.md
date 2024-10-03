@@ -66,24 +66,34 @@ The project computes several **basic** and **advanced financial metrics** to aid
 ![image](https://github.com/user-attachments/assets/537e5a73-7fa1-470f-88d1-ca19dff25621)
 
 ### Advanced Metrics (Note: Longer queries were pasted in notepad for screenshot availibility, and shorter ones were done directly in postgres):
+
 - **EMA** (Exponential Moving Average)
 ![image](https://github.com/user-attachments/assets/af37512b-3305-420e-86ef-2606e03f5dba)
+
 - **RSI** (Relative Strength Index)
 ![image](https://github.com/user-attachments/assets/848d8845-ec53-44b8-924f-df9ff40e5684)
+
 - **OBV** (On-balance Volume)
 ![image](https://github.com/user-attachments/assets/6b50b82d-1e39-41b4-8fbc-6a7e7f806ca1)
+
 - **MACD** (Moving Average Convergence Divergence)
 ![image](https://github.com/user-attachments/assets/89dd4d2d-8572-417e-a128-d44aef20d0d3)
+
 - **Bollinger Bands**
 ![image](https://github.com/user-attachments/assets/eb0f431d-224a-4b36-ab3f-817bdf249b04)
+
 - **ATR** (Average True Range)
 ![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
+
 - **Momentum**
 ![image](https://github.com/user-attachments/assets/95248b36-8ba2-4209-b1f6-cd802c0b82b4)
+
 - **Rate of Change**
 ![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
+
 - **Accumulation/Distribution Line (ADL)**
 ![image](https://github.com/user-attachments/assets/1b432af0-fd7b-4776-bb8c-1dda40b0c148)
+
 - **Chaikin Money Flow**
 ![image](https://github.com/user-attachments/assets/641e4223-4084-4ee8-8f21-846aee9af046)
 
