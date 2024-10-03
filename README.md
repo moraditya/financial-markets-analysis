@@ -122,7 +122,8 @@ Shown below are the EDA Queries and summary views.
 ![image](https://github.com/user-attachments/assets/6d056687-088d-4f9d-b485-18e57b25abad)
 
 -- **Monthly Summary View**
-![image](https://github.com/user-attachments/assets/9383ae74-f17a-42ab-9ff0-b3685b229451)
+
+![image](https://github.com/user-attachments/assets/40d89f85-0430-4a79-93aa-103964feae80)
 
 -- **Volume Trend View**
 ![image](https://github.com/user-attachments/assets/337794f5-e297-485b-bf7d-ed2e045fc213)
