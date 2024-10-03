@@ -66,11 +66,6 @@ The project computes several **basic** and **advanced financial metrics** to aid
 ![image](https://github.com/user-attachments/assets/537e5a73-7fa1-470f-88d1-ca19dff25621)
 
 ### Advanced Metrics (Note: Longer queries were pasted in notepad for screenshot availibility, and shorter ones were done directly in postgres):
-- **Rate of Change**
-
-
-
-![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
 
 - **EMA** (Exponential Moving Average)
 ![image](https://github.com/user-attachments/assets/af37512b-3305-420e-86ef-2606e03f5dba)
@@ -87,14 +82,25 @@ The project computes several **basic** and **advanced financial metrics** to aid
 - **Bollinger Bands**
 ![image](https://github.com/user-attachments/assets/eb0f431d-224a-4b36-ab3f-817bdf249b04)
 
+- **ATR** (Average True Range)
+![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
+
+- **Momentum**
+
+
+![image](https://github.com/user-attachments/assets/f28d0021-964f-44e8-8dad-2c0d823c8696)
+
+- **Rate of Change**
+
+
+![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
+
 - **Accumulation/Distribution Line (ADL)**
 ![image](https://github.com/user-attachments/assets/1b432af0-fd7b-4776-bb8c-1dda40b0c148)
 
 - **Chaikin Money Flow**
 ![image](https://github.com/user-attachments/assets/641e4223-4084-4ee8-8f21-846aee9af046)
 
-- **ATR** (Average True Range)
-![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
 
 
 
