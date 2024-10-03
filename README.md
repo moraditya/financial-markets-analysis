@@ -66,8 +66,9 @@ The project computes several **basic** and **advanced financial metrics** to aid
 ![image](https://github.com/user-attachments/assets/537e5a73-7fa1-470f-88d1-ca19dff25621)
 
 ### Advanced Metrics (Note: Longer queries were pasted in notepad for screenshot availibility, and shorter ones were done directly in postgres):
-- **Rate of Change**
 ![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
+- **Rate of Change**
+
 - **EMA** (Exponential Moving Average)
 ![image](https://github.com/user-attachments/assets/af37512b-3305-420e-86ef-2606e03f5dba)
 
