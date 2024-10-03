@@ -79,7 +79,7 @@ The project computes several **basic** and **advanced financial metrics** to aid
 - **ATR** (Average True Range)
 ![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
 - **Momentum**
-![image](https://github.com/user-attachments/assets/9fe3adcd-f59f-4ea5-9481-331c33df5607)
+![image](https://github.com/user-attachments/assets/57402ede-72db-4d39-aec0-1d5997ee3f0f)
 - **Rate of Change**
 ![image](https://github.com/user-attachments/assets/705563c7-40dd-4500-b635-8dec84f354c9)
 - **Accumulation/Distribution Line (ADL)**
