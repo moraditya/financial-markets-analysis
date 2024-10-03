@@ -116,7 +116,7 @@ Shown below are the EDA Queries and summary views.
 ![image](https://github.com/user-attachments/assets/9e5f06d6-d419-43d4-a008-600d640221ca)
 
 -- **Daily Summary View**
-![image](https://github.com/user-attachments/assets/9a6cd0ee-a7c6-46c7-a62e-c63290577c63)
+![image](https://github.com/user-attachments/assets/a42bee15-2b42-4a48-a378-1969cd9c19a1)
 
 -- **Weekly Summary View**
 ![image](https://github.com/user-attachments/assets/753539f4-8cfc-47d7-837e-84bc4cd35ec5)
