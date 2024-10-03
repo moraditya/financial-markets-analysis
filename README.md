@@ -82,18 +82,17 @@ The project computes several **basic** and **advanced financial metrics** to aid
 - **Bollinger Bands**
 ![image](https://github.com/user-attachments/assets/eb0f431d-224a-4b36-ab3f-817bdf249b04)
 
-- **ATR** (Average True Range)
-![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
-
-- **Rate of Change**
-![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
-
 - **Accumulation/Distribution Line (ADL)**
 ![image](https://github.com/user-attachments/assets/1b432af0-fd7b-4776-bb8c-1dda40b0c148)
 
 - **Chaikin Money Flow**
 ![image](https://github.com/user-attachments/assets/641e4223-4084-4ee8-8f21-846aee9af046)
 
+- **ATR** (Average True Range)
+![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
+
+- **Rate of Change**
+![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
 
 
 **SQL File**:
