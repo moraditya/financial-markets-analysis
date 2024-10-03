@@ -119,25 +119,25 @@ Shown below are the EDA Queries and summary views.
 ![image](https://github.com/user-attachments/assets/a42bee15-2b42-4a48-a378-1969cd9c19a1)
 
 -- **Weekly Summary View**
-![image](https://github.com/user-attachments/assets/753539f4-8cfc-47d7-837e-84bc4cd35ec5)
+![image](https://github.com/user-attachments/assets/6d056687-088d-4f9d-b485-18e57b25abad)
 
 -- **Monthly Summary View**
 ![image](https://github.com/user-attachments/assets/9383ae74-f17a-42ab-9ff0-b3685b229451)
 
 -- **Volume Trend View**
-![image](https://github.com/user-attachments/assets/402f3f32-8591-4dd4-90fe-0dbf317301c0)
+![image](https://github.com/user-attachments/assets/337794f5-e297-485b-bf7d-ed2e045fc213)
 
 -- **Performance Comparison View**
-![image](https://github.com/user-attachments/assets/a8b9cb62-70c4-4ea7-97e9-77f3d73629db)
+![image](https://github.com/user-attachments/assets/0704b351-ccaa-49a5-aaaa-5eda59b81291)
 
 -- **High Volatility Events View**
-![image](https://github.com/user-attachments/assets/38dae6a3-cade-4e39-8ec4-c7b18ff8db3e)
+![image](https://github.com/user-attachments/assets/5e618ab2-e893-4a6b-9851-7005f3e93840)
 
 -- **Sector-Wise Performance View**
-![image](https://github.com/user-attachments/assets/11d8c49f-fd2b-4728-93b5-b6e9355e4c0b)
+![image](https://github.com/user-attachments/assets/2779369b-aef5-4520-97d2-2cf83f1fb997)
 
 -- **Outlier Detection View**
-![image](https://github.com/user-attachments/assets/45df16e4-edf9-41cf-beea-1819d12dbab6)
+![image](https://github.com/user-attachments/assets/31114e06-1003-4800-9515-a75ac824f524)
 
 
 ## Tableau Dashboards
