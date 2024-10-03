@@ -85,7 +85,6 @@ The project computes several **basic** and **advanced financial metrics** to aid
 - **ATR** (Average True Range)
 ![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
 
-- **Momentum**
 - **Rate of Change**
 ![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
 
