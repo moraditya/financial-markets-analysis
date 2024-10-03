@@ -86,9 +86,6 @@ The project computes several **basic** and **advanced financial metrics** to aid
 ![image](https://github.com/user-attachments/assets/3bc0836e-8e37-42a9-bf1e-cd52edfcda59)
 
 - **Momentum**
-dfgdfg
-![image](https://github.com/user-attachments/assets/95248b36-8ba2-4209-b1f6-cd802c0b82b4)
-
 - **Rate of Change**
 ![image](https://github.com/user-attachments/assets/6a72b998-5521-4ddd-865f-b6df01f3921c)
 
