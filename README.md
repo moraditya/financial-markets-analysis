@@ -113,7 +113,7 @@ Shown below are the EDA Queries and summary views.
 
 - **Cleaned and aggregated tables (daily, weekly, and monthly)**
 
-![image](https://github.com/user-attachments/assets/5abceb6f-a720-4b3e-ae4b-940e73d8c6bb)
+![image](https://github.com/user-attachments/assets/9e5f06d6-d419-43d4-a008-600d640221ca)
 
 -- **Daily Summary View**
 ![image](https://github.com/user-attachments/assets/9a6cd0ee-a7c6-46c7-a62e-c63290577c63)
